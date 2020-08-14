@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Vehicle
+from . models import Vehicle
 
 # Create your views here.
 

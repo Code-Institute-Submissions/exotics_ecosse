@@ -29,9 +29,9 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="vehicle-details-container mb-5 mt-md-5">
                     <p class="mb-0">{{ vehicle.name }}</p>
-                    <p class="lead mb-0 text-left font-weight-bold">${{ vehicle.price }}</p>
+                    <p class="lead mb-0 text-left font-weight-bold">£{{ vehicle.price }} per day</p>
                     {% if vehicle.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ vehicle.rating }} / 5</small>
+                        <small class="text-muted"><i class="fas fa-trophy mr-1"></i>{{ vehicle.rating }} / 5</small>
                     {% else %}
                         <small class="text-muted">No Rating</small>
                     {% endif %}
