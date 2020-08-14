@@ -70,6 +70,14 @@ body {
     z-index: -1;
 }
 
+.header-container {
+        padding-top: 164px;
+    }
+
+#tagline {
+    padding-top: 140px;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -89,11 +97,4 @@ body {
         z-index: 1030;
     }
 
-    .header-container {
-        padding-top: 164px;
-    }
-}
 
-#tagline {
-    padding-top: 140px;
-}

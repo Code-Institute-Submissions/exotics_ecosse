@@ -22,33 +22,33 @@
             <div class="vehicle-container col-10 offset-1">
                 <div class="row mt-1 mb-2"></div>
                 <div class="row">
-                {% for vehicle in vehicles %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        <div class="card h-100 border-0">
-                            {% if vehicle.image %}
-                                    <a href="">
-                                        <img class="card-img-top img-fluid" src="{{ vehicle.image.url }}" alt="{{ vehicle.name }}">
-                                    </a>
-                                    {% else %}
-                                    <a href="">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ vehicle.name }}">
-                                    </a>
-                                    {% endif %}
-                                    <div class="card-body pb-0">
-                                        <p class="mb-0">{{ vehicle.name }}</p>
-                                    </div>
-                                    <div class="card-footer bg-white pt-0 border-0 text-left">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="lead mb-0 text-left font-weight-bold">${{ vehicle.price }}</p>
-                                                {% if vehicle.rating %}
-                                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ vehicle.rating }} / 5</small>
-                                                {% else %}
-                                                    <small class="text-muted">No Rating</small>
-                                                {% endif %}
-                                            </div>
+                    {% for vehicle in vehicles %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card h-100 border-0">
+                                {% if vehicle.image %}
+                                <a href="{% url 'vehicle_detail' vehicle.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ vehicle.image.url }}" alt="{{ vehicle.name }}">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'vehicle_detail' vehicle.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ vehicle.name }}">
+                                </a>
+                                {% endif %}
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ vehicle.name }}</p>
+                                </div>
+                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold">${{ vehicle.price }}</p>
+                                            {% if vehicle.rating %}
+                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ vehicle.rating }} / 5</small>
+                                            {% else %}
+                                                <small class="text-muted">No Rating</small>
+                                            {% endif %}
                                         </div>
                                     </div>
+                                </div>
                             </div>
                         </div>
                         {% if forloop.counter|divisibleby:1 %}
@@ -71,11 +71,9 @@
                                 <hr>
                             </div>
                         {% endif %}
-                    
-                        
                     {% endfor %}
-                    </div>
                 </div>
             </div>
         </div>
-    {% endblock %}
+    </div>
+{% endblock %}
