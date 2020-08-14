@@ -1,0 +1,4 @@
+[{"pk": 1, "model": "vehicles.category", "fields": {"name": "vehicles", "friendly_name": "All Vehicles"}}, {"pk": 2, "model": "vehicles.category", "fields": {"name": "supercars", "friendly_name": "Supercars"}}, {"pk": 3, "model": "vehicles.category", "fields": {"name": "luxury", "friendly_name": "Luxury"}}, {"pk": 4, "model": "vehicles.category", "fields": {"name": "suv", "friendly_name": "SUV"}}]
+
+
+
