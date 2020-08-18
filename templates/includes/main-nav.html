@@ -5,8 +5,8 @@
                 All Vehicles
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'vehicles' %}" class="dropdown-item">By Price</a>
+                <a href="{% url 'vehicles' %}" class="dropdown-item ">By Rating</a>
                 <a href="{% url 'vehicles' %}" class="dropdown-item ">All Vehicles</a>
             </div>
         </li>
@@ -16,8 +16,8 @@
                 Supercars
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'vehicles' %}?category=supercars" class="dropdown-item">By Price</a>
+                <a href="{% url 'vehicles' %}?category=supercars" class="dropdown-item ">By Rating</a>
             </div>
         </li>
 
@@ -26,8 +26,8 @@
                 Luxury
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'vehicles' %}?category=luxury" class="dropdown-item">By Price</a>
+                <a href="{% url 'vehicles' %}?category=luxury" class="dropdown-item ">By Rating</a>
             </div>
         </li>
 
@@ -36,8 +36,8 @@
                 SUV
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'vehicles' %}?category=suv" class="dropdown-item">By Price</a>
+                <a href="{% url 'vehicles' %}?category=suv" class="dropdown-item ">By Rating</a>
             </div>
         </li>
     </ul>
