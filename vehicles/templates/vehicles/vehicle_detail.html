@@ -39,20 +39,40 @@
                     <form class="form" action="{% url 'add_to_cart' vehicle.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
+                        {% with vehicle.has_dates as s %}
+                        {% if s %}
                             <div class="col-12">
-                                <p class="mt-3"><strong>How many days:</strong></p>
+                            <p><strong>Dates:</strong></p>
+                            <input type="date">
+                            </div>
+                        {% endif %}
+                            <div class="col-12">
+                                <p class="mt-3"><strong>Days:</strong></p>
                                 <div class="form-group w-50">
                                     <div class="input-group">
-                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ vehicle.id }}" id="id_qty_{{ vehicle.id }}">
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn btn-black rounded-0" 
+                                                data-item_id="{{ vehicle.id }}" id="decrement-qty_{{ vehicle.id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control qty_input" type="number"
+                                            name="quantity" value="1" min="1" max="99"
+                                            data-item_id="{{ vehicle.id }}"
+                                            id="id_qty_{{ vehicle.id }}">
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn btn-black rounded-0"
+                                                data-item_id="{{ vehicle.id }}" id="increment-qty_{{ vehicle.id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <form class="form" action="{% url 'add_to_cart' vehicle.id %}" method="POST">
-                                <div class="form-row">
-                                    <div class="col-12">
-                                        <p class="mt-3"><strong>When do you want to go:</strong></p>
-                                            <input type="date" id="dates" name="dates">
-                                        </form>
+                            </div>                          
    
                             <div class="col-12">
                                 <a href="{% url 'vehicles' %}" class="btn btn-outline-black rounded-0 mt-5">
@@ -70,4 +90,18 @@
             </div>
         </div>
     </div>
+    {% endwith %}
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'vehicles/includes/quantity_input_script.html' %}
+{% endblock %}
+
+<!--<form class="form" action="{% url 'add_to_cart' vehicle.id %}" method="POST">
+                                <div class="form-row">
+                                    <div class="col-12">
+                                        <p class="mt-3"><strong>When do you want to go:</strong></p>
+                                            <input type="date" id="date" name="date">
+                                    </div>
+                                </div>-->

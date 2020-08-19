@@ -7,11 +7,14 @@ def view_cart(request):
 
     return render(request, 'cart/cart.html')
 
-def add_to_cart(request, item_id):
+def add_to_cart(request, item_id,):
     """ add quantity to cart"""
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+    date = None
+    if 'vehicle_date' in request.POST:
+        date = request.POST['date']
     cart = request.session.get('cart', {})
  
 
