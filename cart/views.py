@@ -1,27 +1,82 @@
-from django.shortcuts import render, redirect
-
-# Create your views here.
+from django.shortcuts import render, redirect, reverse, HttpResponse
 
 def view_cart(request):
-    """view to return cart contents page"""
+    """ view that renders the cart contents """
 
     return render(request, 'cart/cart.html')
 
-def add_to_cart(request, item_id,):
-    """ add quantity to cart"""
+def add_to_cart(request, item_id):
+    """ Add  quantity to the cart """
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    date = None
-    if 'vehicle_date' in request.POST:
-        date = request.POST['date']
+    size = None
+    if 'vehicle_size' in request.POST:
+        size = request.POST['vehicle_size']
     cart = request.session.get('cart', {})
- 
 
-    if item_id in list(cart.keys()):
-        cart[item_id] += quantity
+    if size:
+        if item_id in list(cart.keys()):
+            if size in cart[item_id]['items_by_size'].keys():
+                cart[item_id]['items_by_size'][size] += quantity
+            else:
+                cart[item_id]['items_by_size'][size] = quantity
+        else:
+            cart[item_id] = {'items_by_size': {size: quantity}}
     else:
-        cart[item_id] = quantity
+        if item_id in list(cart.keys()):
+            cart[item_id] += quantity
+        else:
+            cart[item_id] = quantity
 
     request.session['cart'] = cart
     return redirect(redirect_url)
+    
+
+def adjust_cart(request, item_id):
+    """ Adjust the number of days """
+
+    quantity = int(request.POST.get('quantity'))
+    size = None
+    if 'vehicle_size' in request.POST:
+        size = request.POST['vehicle_size']
+    cart = request.session.get('cart', {})
+
+    if size:
+        if quantity > 0:
+            cart[item_id]['items_by_size'][size] = quantity
+        else:
+            del cart[item_id]['items_by_size'][size]
+            if not cart[item_id]['items_by_size']:
+                cart.pop(item_id)
+    else:
+        if quantity > 0:
+            cart[item_id] = quantity
+        else:
+            cart.pop(item_id)
+
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))
+
+
+def remove_from_cart(request, item_id):
+    """Remove item from cart"""
+
+    try:
+        size = None
+        if 'vehicle_size' in request.POST:
+            size = request.POST['vehicle_size']
+        cart = request.session.get('cart', {})
+
+        if size:
+            del cart[item_id]['items_by_size'][size]
+            if not cart[item_id]['items_by_size']:
+                cart.pop(item_id)
+        else:
+            cart.pop(item_id)
+
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        return HttpResponse(status=500)
