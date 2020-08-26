@@ -87,3 +87,26 @@ def add_vehicle(request):
     }
 
     return render(request, template, context)
+
+def edit_vehicle(request, vehicle_id):
+    """edit a vehicle """
+    vehicle = get_object_or_404(Vehicle, pk=vehicle_id)
+    if request.method == 'POST':
+        form = VehicleForm(request.POST, request.FILES, instance=vehicle)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated vehicle')
+            return redirect(reverse('vehicle_detail', args=[vehicle.id]))
+        else:
+            messages.error(request, 'Failed to update vehicle. Please ensure form is valid')
+    else:
+        form = VehicleForm(instance=vehicle)
+        messages.info(request, f'You are editing {vehicle.name}')
+
+    template = 'vehicles/edit_vehicle.html'
+    context = {
+        'form': form,
+        'vehicle': vehicle,
+    }
+
+    return render(request, template, context)
