@@ -69,13 +69,13 @@ def vehicle_detail(request, vehicle_id):
 
 
 def add_vehicle(request):
-    """ add vehicle to site """
+    """ Add a vehicle """
     if request.method == 'POST':
         form = VehicleForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            vehicle = form.save()
             messages.success(request, 'Successfully added vehicle!')
-            return redirect(reverse('add_vehicle'))
+            return redirect(reverse('vehicle_detail', args=[vehicle.id]))
         else:
             messages.error(request, 'Failed to add vehicle. Please ensure the form is valid.')
     else:           
@@ -110,3 +110,12 @@ def edit_vehicle(request, vehicle_id):
     }
 
     return render(request, template, context)
+
+def delete_vehicle(request, vehicle_id):
+    """delete vehicle"""
+    vehicle = get_object_or_404(Vehicle, pk=vehicle_id)
+    vehicle.delete()
+    messages.success(request, 'Vehicle deleted!')
+    return redirect(reverse('vehicles'))
+
+
