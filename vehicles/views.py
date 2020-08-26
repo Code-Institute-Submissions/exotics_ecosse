@@ -70,7 +70,17 @@ def vehicle_detail(request, vehicle_id):
 
 def add_vehicle(request):
     """ add vehicle to site """
-    form = VehicleForm()
+    if request.method == 'POST':
+        form = VehicleForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added vehicle!')
+            return redirect(reverse('add_vehicle'))
+        else:
+            messages.error(request, 'Failed to add vehicle. Please ensure the form is valid.')
+    else:           
+        form = VehicleForm()
+        
     template = 'vehicles/add_vehicle.html'
     context = {
         'form': form,
