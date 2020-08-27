@@ -51,7 +51,7 @@
                                         <p class="my-0 small text-muted">SKU: {{ item.vehicle.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.vehicle.price }}</p>
+                                        <p class="my-0">£{{ item.vehicle.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
                                         <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
@@ -88,7 +88,7 @@
                                         <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-vehicle_size="{{ item.size }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.vehicle.price | calc_subtotal:item.quantity }}</p>
+                                        <p class="my-0">£{{ item.vehicle.price | calc_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -99,7 +99,7 @@
                                     <h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
                                     {% if free_delivery_delta > 0 %}
                                         <p class="mb-1 text-danger">
-                                            You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                                            You could get free delivery by spending just <strong>£{{ free_delivery_delta }}</strong> more!
                                         </p>
                                     {% endif %}
                                 </td>
