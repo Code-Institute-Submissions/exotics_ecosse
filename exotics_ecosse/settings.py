@@ -27,7 +27,7 @@ SECRET_KEY = 'y*-!r)=2%jsr$8z+c79pil5)@_#-7t)40btk86s!+^^3a()+2m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pt70-exotics-ecosse.heroku.com', 'localhost']
+ALLOWED_HOSTS = ['pt70-exotics-ecosse.herokuapp.com', 'localhost']
 
 
 # Application definition
