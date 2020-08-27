@@ -1,0 +1,1 @@
+web: gunicorn exotics_ecosse.wsgi:application
