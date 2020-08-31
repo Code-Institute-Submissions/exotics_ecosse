@@ -156,7 +156,7 @@ input[name='q']::placeholder {
 }
 
 .arrow-warning {
-    border-bottom-color: #ffc107 !important;
+    border-bottom-color: #f8f9fa !important;
 }
 
 .arrow-info {
