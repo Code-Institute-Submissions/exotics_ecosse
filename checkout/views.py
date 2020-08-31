@@ -158,7 +158,7 @@ def checkout_success(request, order_number):
                 'default_town_or_city': order.town_or_city,
                 'default_street_address1': order.street_address1,
                 'default_street_address2': order.street_address2,
-                'default_county': order.county,
+                'default_start_date': order.county,
             }
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
