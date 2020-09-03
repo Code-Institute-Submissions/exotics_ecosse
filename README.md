@@ -94,23 +94,23 @@ Another feature idea
 
 
 ## Testing
-I have run testing on:
-Chrome developer tools
-W3C Validator for HTML
-W3C Validator for CSS
-JSHint for javascript 
-Idle for Python
+I have run testing on
+* Chrome developer tools
+* W3C Validator for HTML
+* W3C Validator for CSS
+* JSHint for javascript 
+* Idle for Python
 
 It has been tested on
-Google Chrome
-Firefox
-Safari
+* Google Chrome
+* Firefox
+* Safari
 
-It has been checked on these screen sizes and renders well on all.
-Desktop
-Laptop
-Ipad
-Iphone
+It has been checked on these screen sizes and renders well on all
+* Desktop
+* Laptop
+* Ipad
+* Iphone
 
 
 Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
@@ -123,6 +123,12 @@ You should also mention in this section any interesting bugs or problems you dis
 
 ## Deployment
 The deployed link for the site is: https://pt70-exotics-ecosse.herokuapp.com/
+To make a payment when testing this app, please use the following details:
+
+* Card number: 4242 4242 4242 4242
+* CVC: any 3 numbers
+* Date: any date
+* ZIP Code: any 5 numbers
 
 This site was created using GITPOD, stored in GITHUB, and deployed through HEROKU.
 
@@ -133,12 +139,7 @@ to the location of your clone directory Enter git clone and paste in the URL: ht
 
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
 
-Different values for environment variables (Heroku Config Vars)?
-Different configuration files?
-Separate git branch?
-In addition, if it is not obvious, you should also describe how to run your code locally.
 
 ## Credits
 ### Content
