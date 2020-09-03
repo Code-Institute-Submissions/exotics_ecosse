@@ -58,6 +58,10 @@ Wireframes for this project were completed on balsamiq and are available to view
 * Thank you page has a form which lists all transaction details on left and a success toast opens on right.
 * Vehicle management page for owners only allows submission of vehicle details and gives access to edit and delete.
 
+## Features to implement in future
+* Functionality for owners to specify available dates 
+* A Merchandise store for Exotics Ecosse brand. Shirts, t-shirts, hats, keyrings, flasks etc.
+
 ## Technologies Used
 * HTML the standard markup language
 * CSS to style html
@@ -100,6 +104,9 @@ It has been checked on these screen sizes and renders well on all
 * Laptop
 * Ipad
 * Iphone
+
+I used the W3C Validator for HTML which through up various errors which were caused
+by the validator having problems with Django's template code.
 
 ## Deployment
 This site was created using GITPOD, stored in GITHUB, and deployed through HEROKU.
