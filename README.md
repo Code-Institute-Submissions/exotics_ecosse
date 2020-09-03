@@ -58,16 +58,6 @@ Wireframes for this project were completed on balsamiq and are available to view
 * Thank you page has a form which lists all transaction details on left and a success toast opens on right.
 * Vehicle management page for owners only allows submission of vehicle details and gives access to edit and delete.
 
-### Existing Features
-Feature 1 - allows users X to achieve Y, by having them fill out Z
-...
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
-
-### Features Left to Implement
-Another feature idea
-
 ## Technologies Used
 * HTML the standard markup language
 * CSS to style html
@@ -92,7 +82,6 @@ Another feature idea
 * POSTGRESQL for production
 * BALSAMIQ for Wireframes
 
-
 ## Testing
 I have run testing on
 * Chrome developer tools
@@ -112,17 +101,13 @@ It has been checked on these screen sizes and renders well on all
 * Ipad
 * Iphone
 
-
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
 ## Deployment
+This site was created using GITPOD, stored in GITHUB, and deployed through HEROKU.
+
 The deployed link for the site is: https://pt70-exotics-ecosse.herokuapp.com/
+
+To deploy locally https://github.com/PT-70/exotics_ecosse.git
+
 To make a payment when testing this app, please use the following details:
 
 * Card number: 4242 4242 4242 4242
@@ -130,23 +115,20 @@ To make a payment when testing this app, please use the following details:
 * Date: any date
 * ZIP Code: any 5 numbers
 
-This site was created using GITPOD, stored in GITHUB, and deployed through HEROKU.
-
 You can clone this project from this repository by,
 
 Clicking on the "clone or download" button at the top right Copy the URL Change the current working directory
-to the location of your clone directory Enter git clone and paste in the URL: https://github.com/PT-70/exotics_ecosse.git
-
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
-
+to the location of your clone directory Enter git clone and paste in the URL:
 
 ## Credits
+
 ### Content
 I received inspiration for this project from the final module in the code institute full stack developer course and as 
 such used it as my template.
+
 ### Media
 The photos used in this site were obtained from Google Images.
+
 ### Acknowledgements
 The colour scheme for this project was inspired by the TV advertisement for 'G-Tech' products, which I think has a clean sharp look.
 
