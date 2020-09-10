@@ -3,10 +3,12 @@ from django.contrib import messages
 
 from vehicles.models import Vehicle
 
+
 def view_cart(request):
     """ view that renders the cart contents """
 
     return render(request, 'cart/cart.html')
+
 
 def add_to_cart(request, item_id):
     """ Add  quantity to the cart """
@@ -23,25 +25,27 @@ def add_to_cart(request, item_id):
         if item_id in list(cart.keys()):
             if size in cart[item_id]['items_by_size'].keys():
                 cart[item_id]['items_by_size'][size] += quantity
-                messages.success(request, f'Updated {vehicle.name} Days to {cart[item_id]}')
+                messages.success(
+                    request, f'Updated {vehicle.name} Days to {cart[item_id]}')
             else:
                 cart[item_id]['items_by_size'][size] = quantity
                 messages.success(request, f'Added {vehicle.name} to cart')
         else:
             cart[item_id] = {'items_by_size': {size: quantity}}
             messages.success(request, f'Added {vehicle.name} to cart')
-            
+
     else:
         if item_id in list(cart.keys()):
             cart[item_id] += quantity
-            messages.success(request, f'Updated {vehicle.name} Days to {cart[item_id]}')
+            messages.success(
+                request, f'Updated {vehicle.name} Days to {cart[item_id]}')
         else:
             cart[item_id] = quantity
             messages.success(request, f'Added {vehicle.name} to cart')
 
     request.session['cart'] = cart
     return redirect(redirect_url)
-    
+
 
 def adjust_cart(request, item_id):
     """ Adjust the number of days """
@@ -56,7 +60,8 @@ def adjust_cart(request, item_id):
     if size:
         if quantity > 0:
             cart[item_id]['items_by_size'][size] = quantity
-            messages.success(request, f'Updated {vehicle.name} Days to {cart[item_id]}')
+            messages.success(
+                request, f'Updated {vehicle.name} Days to {cart[item_id]}')
         else:
             del cart[item_id]['items_by_size'][size]
             if not cart[item_id]['items_by_size']:
@@ -65,7 +70,8 @@ def adjust_cart(request, item_id):
     else:
         if quantity > 0:
             cart[item_id] = quantity
-            messages.success(request, f'Updated {vehicle.name} Days to {cart[item_id]}')
+            messages.success(
+                request, f'Updated {vehicle.name} Days to {cart[item_id]}')
         else:
             cart.pop(item_id)
             messages.success(request, f'Removed {vehicle.name} from cart')

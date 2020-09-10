@@ -60,7 +60,8 @@ Wireframes for this project were completed on balsamiq and are available to view
 
 ## Features to implement in future
 * Functionality for owners to specify available dates 
-* A Merchandise store for Exotics Ecosse brand. Shirts, t-shirts, hats, keyrings, flasks etc.
+* A Merchandise store for Exotics Ecosse brand. Shirts, t-shirts, hats, keyrings, flasks etc
+* Option to select the size of a vehicle by number of seats
 
 ## Technologies Used
 * HTML the standard markup language
@@ -112,8 +113,6 @@ by the validator having problems with Django's template code.
 This site was created using GITPOD, stored in GITHUB, and deployed through HEROKU.
 
 The deployed link for the site is: https://pt70-exotics-ecosse.herokuapp.com/
-
-To deploy locally https://github.com/PT-70/exotics_ecosse.git
 
 To make a payment when testing this app, please use the following details:
 
