@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from vehicles.models import Vehicle
 
+
 def cart_contents(request):
 
     cart_items = []
@@ -25,10 +26,10 @@ def cart_contents(request):
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
         delivery = 0
-        free_delivery_delta = 0 
+        free_delivery_delta = 0
 
-    grand_total = delivery + total 
-       
+    grand_total = delivery + total
+
     context = {
         'cart_items': cart_items,
         'total': total,
@@ -40,3 +41,4 @@ def cart_contents(request):
     }
 
     return context
+    

@@ -93,7 +93,7 @@ I have run testing on
 * W3C Validator for HTML
 * W3C Validator for CSS
 * JSHint for javascript 
-* Idle for Python
+* Pep8 for Python
 
 It has been tested on
 * Google Chrome
@@ -106,7 +106,7 @@ It has been checked on these screen sizes and renders well on all
 * Ipad
 * Iphone
 
-I used the W3C Validator for HTML which through up various errors which were caused
+I used the W3C Validator which through up various errors which I believe were caused
 by the validator having problems with Django's template code.
 
 ## Deployment
