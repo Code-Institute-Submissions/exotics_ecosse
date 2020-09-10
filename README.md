@@ -130,8 +130,8 @@ to the location of your clone directory Enter git clone and paste in the URL:
 ## Credits
 
 ### Content
-I received inspiration for this project from the final module in the code institute full stack developer course and as 
-such used it as my template.
+I received inspiration for this project from the final module in the code institute full stack developer course.
+It was an invaluable resource and guide, and as such used it as my template, referring to the video tutorials throughout. 
 
 ### Media
 The photos used in this site were obtained from Google Images.
