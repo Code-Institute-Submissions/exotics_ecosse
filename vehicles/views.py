@@ -41,10 +41,9 @@ def all_vehicles(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
-                               
                 return redirect(reverse('vehicles'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)               
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
             vehicles = vehicles.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -86,7 +85,6 @@ def add_vehicle(request):
             return redirect(reverse('vehicle_detail', args=[vehicle.id]))
         else:
             messages.error(request, 'Failed to add vehicle. Please ensure the form is valid.')
-                                                      
     else:
         form = VehicleForm()
 
