@@ -3,7 +3,6 @@ from .models import Vehicle, Category
 
 # Register your models here.
 
-
 class VehicleAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
@@ -16,7 +15,6 @@ class VehicleAdmin(admin.ModelAdmin):
 
     ordering = ('sku',)
 
-
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
@@ -25,4 +23,3 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Vehicle, VehicleAdmin)
 admin.site.register(Category, CategoryAdmin)
-
