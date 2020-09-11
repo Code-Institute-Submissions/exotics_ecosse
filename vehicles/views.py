@@ -7,6 +7,7 @@ from .forms import VehicleForm
 
 # Create your views here.
 
+
 def all_vehicles(request):
     """ A view to show all cars, including sorting and search queries """
 
@@ -41,11 +42,11 @@ def all_vehicles(request):
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('vehicles'))
-            
+
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             vehicles = vehicles.filter(queries)
 
-    current_sorting =f'{sort}_{direction}'
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'vehicles': vehicles,
@@ -68,6 +69,7 @@ def vehicle_detail(request, vehicle_id):
 
     return render(request, 'vehicles/vehicle_detail.html', context)
 
+
 @login_required
 def add_vehicle(request):
     """ Add a vehicle """
@@ -83,15 +85,16 @@ def add_vehicle(request):
             return redirect(reverse('vehicle_detail', args=[vehicle.id]))
         else:
             messages.error(request, 'Failed to add vehicle. Please ensure the form is valid.')
-    else:           
+    else:
         form = VehicleForm()
-        
+
     template = 'vehicles/add_vehicle.html'
     context = {
         'form': form,
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_vehicle(request, vehicle_id):
@@ -121,13 +124,14 @@ def edit_vehicle(request, vehicle_id):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_vehicle(request, vehicle_id):
     """delete vehicle"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only vehicle owners can do that.')
         return redirect(reverse('home'))
-        
+
     vehicle = get_object_or_404(Vehicle, pk=vehicle_id)
     vehicle.delete()
     messages.success(request, 'Vehicle deleted!')
