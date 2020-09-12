@@ -62,6 +62,7 @@ Wireframes for this project were completed on balsamiq and are available to view
 * Functionality for owners to specify available dates 
 * A Merchandise store for Exotics Ecosse brand. Shirts, t-shirts, hats, keyrings, flasks etc
 * Option to select the size of a vehicle by number of seats
+* Fix widgets.py, line length correction breaks code, needs further investigation.
 
 ## Technologies Used
 * HTML the standard markup language
